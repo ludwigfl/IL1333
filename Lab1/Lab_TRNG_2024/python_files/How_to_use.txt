@@ -1,0 +1,33 @@
+The linked file is a jupyter notebook rather than a regular python file.
+In order to open it you need to have jupyter installed. Then you open it by typing:
+
+jupyter notebook *filename*
+
+in your command line interface to open a specific notebook.
+Jupyter can easily be installed using pip or conda.
+
+pip install jupyterlab
+pip install notebook
+conda install -c conda-forge jupyterlab
+conda install -c conda-forge notebook
+
+The code was written using python 3.7.
+To run the code you will need to install some libraries. This can be done easily 
+if you use either pip or conda for packet and environment management respectively.
+
+If you're new to python packet management: you can usually guess what the command is.
+conda install *library_name*
+and
+pip install *library_name*
+works most of the time. Conda even installs dependencies automatically.
+
+
+
+*****************************************************************************
+* The code assumes you have a file called dump.txt in the same directory as *
+* the notebook. You can change this to any filepath using linux notation.   *
+* The important thing is that you sanitized the file to only contain 0s,    *
+* 1s, and whitespaces. If you didn't do this beforehand then you can do it  *
+* in python using either re (regex library) or list operations (strings are *
+* lists of chars)                                                           *
+*****************************************************************************
