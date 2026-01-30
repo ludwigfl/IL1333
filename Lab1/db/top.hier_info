@@ -1,0 +1,1025 @@
+|top
+FPGA_CLK_50 => FPGA_CLK_50.IN2
+FPGA_CLK2_50 => ~NO_FANOUT~
+FPGA_CLK3_50 => ~NO_FANOUT~
+GPIO_0[0] <> <UNC>
+GPIO_0[1] <> <UNC>
+GPIO_0[2] <> <UNC>
+GPIO_0[3] <> <UNC>
+GPIO_0[4] <> <UNC>
+GPIO_0[5] <> <UNC>
+GPIO_0[6] <> <UNC>
+GPIO_0[7] <> <UNC>
+GPIO_0[8] <> <UNC>
+GPIO_0[9] <> <UNC>
+GPIO_0[10] <> <UNC>
+GPIO_0[11] <> <UNC>
+GPIO_0[12] <> <UNC>
+GPIO_0[13] <> <UNC>
+GPIO_0[14] <> <UNC>
+GPIO_0[15] <> <UNC>
+GPIO_0[16] <> <UNC>
+GPIO_0[17] <> <UNC>
+GPIO_0[18] <> <UNC>
+GPIO_0[19] <> <UNC>
+GPIO_0[20] <> <UNC>
+GPIO_0[21] <> <UNC>
+GPIO_0[22] <> <UNC>
+GPIO_0[23] <> <UNC>
+GPIO_0[24] <> <UNC>
+GPIO_0[25] <> <UNC>
+GPIO_0[26] <> <UNC>
+GPIO_0[27] <> <UNC>
+GPIO_0[28] <> <UNC>
+GPIO_0[29] <> <UNC>
+GPIO_0[30] <> <UNC>
+GPIO_0[31] <> <UNC>
+GPIO_0[32] <> <UNC>
+GPIO_0[33] <> <UNC>
+GPIO_0[34] <> <UNC>
+GPIO_0[35] <> <UNC>
+GPIO_1[0] <> <UNC>
+GPIO_1[1] <> rxtx:rxtx.tx
+GPIO_1[2] <> <UNC>
+GPIO_1[3] <> <UNC>
+GPIO_1[4] <> <UNC>
+GPIO_1[5] <> <UNC>
+GPIO_1[6] <> <UNC>
+GPIO_1[7] <> <UNC>
+GPIO_1[8] <> <UNC>
+GPIO_1[9] <> <UNC>
+GPIO_1[10] <> <UNC>
+GPIO_1[11] <> <UNC>
+GPIO_1[12] <> <UNC>
+GPIO_1[13] <> <UNC>
+GPIO_1[14] <> <UNC>
+GPIO_1[15] <> <UNC>
+GPIO_1[16] <> <UNC>
+GPIO_1[17] <> <UNC>
+GPIO_1[18] <> <UNC>
+GPIO_1[19] <> <UNC>
+GPIO_1[20] <> <UNC>
+GPIO_1[21] <> <UNC>
+GPIO_1[22] <> <UNC>
+GPIO_1[23] <> <UNC>
+GPIO_1[24] <> <UNC>
+GPIO_1[25] <> <UNC>
+GPIO_1[26] <> <UNC>
+GPIO_1[27] <> <UNC>
+GPIO_1[28] <> <UNC>
+GPIO_1[29] <> <UNC>
+GPIO_1[30] <> <UNC>
+GPIO_1[31] <> <UNC>
+GPIO_1[32] <> <UNC>
+GPIO_1[33] <> <UNC>
+GPIO_1[34] <> <UNC>
+GPIO_1[35] <> <UNC>
+KEY[0] => KEY[0].IN1
+KEY[1] => ~NO_FANOUT~
+LED[0] << led_level.DB_MAX_OUTPUT_PORT_TYPE
+LED[1] << tx_data[0].DB_MAX_OUTPUT_PORT_TYPE
+LED[2] << <GND>
+LED[3] << <GND>
+LED[4] << <GND>
+LED[5] << <GND>
+LED[6] << <GND>
+LED[7] << <GND>
+SW[0] => SW[0].IN1
+SW[1] => SW[1].IN1
+SW[2] => ~NO_FANOUT~
+SW[3] => ~NO_FANOUT~
+
+
+|top|trng:trng
+clk => clk.IN1
+rst_n => rst_n.IN1
+ro_en => ro_en.IN1
+start => start.IN1
+will_send[0] <= will_send[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+will_send[1] <= will_send[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+will_send[2] <= will_send[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+will_send[3] <= will_send[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+will_send[4] <= will_send[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+will_send[5] <= will_send[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+will_send[6] <= will_send[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+will_send[7] <= will_send[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+data_vld <= data_vld~reg0.DB_MAX_OUTPUT_PORT_TYPE
+tx_rdy => always2.IN1
+
+
+|top|trng:trng|trng_core:trng_core
+clk => clk.IN4
+start => trng_out~reg0.ENA
+rst_n => trng_out~reg0.ACLR
+rst_n => q1.ACLR
+rst_n => q2.ACLR
+ro_en => ro_en.IN4
+trng_out <= trng_out~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|trng:trng|trng_core:trng_core|fr_high:fr_high_1
+ro_en => ro_en.IN32
+clk => clk.IN32
+fr_h <= fr_h.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|trng:trng|trng_core:trng_core|fr_high:fr_high_1|ro:U1
+ro_en => n1.IN0
+clk => meta.CLK
+ro_out <= meta.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|trng:trng|trng_core:trng_core|fr_high:fr_high_1|ro:U2
+ro_en => n1.IN0
+clk => meta.CLK
+ro_out <= meta.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|trng:trng|trng_core:trng_core|fr_high:fr_high_1|ro:U3
+ro_en => n1.IN0
+clk => meta.CLK
+ro_out <= meta.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|trng:trng|trng_core:trng_core|fr_high:fr_high_1|ro:U4
+ro_en => n1.IN0
+clk => meta.CLK
+ro_out <= meta.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|trng:trng|trng_core:trng_core|fr_high:fr_high_1|ro:U5
+ro_en => n1.IN0
+clk => meta.CLK
+ro_out <= meta.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|trng:trng|trng_core:trng_core|fr_high:fr_high_1|ro:U6
+ro_en => n1.IN0
+clk => meta.CLK
+ro_out <= meta.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|trng:trng|trng_core:trng_core|fr_high:fr_high_1|ro:U7
+ro_en => n1.IN0
+clk => meta.CLK
+ro_out <= meta.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|trng:trng|trng_core:trng_core|fr_high:fr_high_1|ro:U8
+ro_en => n1.IN0
+clk => meta.CLK
+ro_out <= meta.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|trng:trng|trng_core:trng_core|fr_high:fr_high_1|ro:U9
+ro_en => n1.IN0
+clk => meta.CLK
+ro_out <= meta.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|trng:trng|trng_core:trng_core|fr_high:fr_high_1|ro:U10
+ro_en => n1.IN0
+clk => meta.CLK
+ro_out <= meta.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|trng:trng|trng_core:trng_core|fr_high:fr_high_1|ro:U11
+ro_en => n1.IN0
+clk => meta.CLK
+ro_out <= meta.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|trng:trng|trng_core:trng_core|fr_high:fr_high_1|ro:U12
+ro_en => n1.IN0
+clk => meta.CLK
+ro_out <= meta.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|trng:trng|trng_core:trng_core|fr_high:fr_high_1|ro:U13
+ro_en => n1.IN0
+clk => meta.CLK
+ro_out <= meta.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|trng:trng|trng_core:trng_core|fr_high:fr_high_1|ro:U14
+ro_en => n1.IN0
+clk => meta.CLK
+ro_out <= meta.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|trng:trng|trng_core:trng_core|fr_high:fr_high_1|ro:U15
+ro_en => n1.IN0
+clk => meta.CLK
+ro_out <= meta.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|trng:trng|trng_core:trng_core|fr_high:fr_high_1|ro:U16
+ro_en => n1.IN0
+clk => meta.CLK
+ro_out <= meta.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|trng:trng|trng_core:trng_core|fr_high:fr_high_1|ro:U17
+ro_en => n1.IN0
+clk => meta.CLK
+ro_out <= meta.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|trng:trng|trng_core:trng_core|fr_high:fr_high_1|ro:U18
+ro_en => n1.IN0
+clk => meta.CLK
+ro_out <= meta.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|trng:trng|trng_core:trng_core|fr_high:fr_high_1|ro:U19
+ro_en => n1.IN0
+clk => meta.CLK
+ro_out <= meta.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|trng:trng|trng_core:trng_core|fr_high:fr_high_1|ro:U20
+ro_en => n1.IN0
+clk => meta.CLK
+ro_out <= meta.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|trng:trng|trng_core:trng_core|fr_high:fr_high_1|ro:U21
+ro_en => n1.IN0
+clk => meta.CLK
+ro_out <= meta.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|trng:trng|trng_core:trng_core|fr_high:fr_high_1|ro:U22
+ro_en => n1.IN0
+clk => meta.CLK
+ro_out <= meta.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|trng:trng|trng_core:trng_core|fr_high:fr_high_1|ro:U23
+ro_en => n1.IN0
+clk => meta.CLK
+ro_out <= meta.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|trng:trng|trng_core:trng_core|fr_high:fr_high_1|ro:U24
+ro_en => n1.IN0
+clk => meta.CLK
+ro_out <= meta.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|trng:trng|trng_core:trng_core|fr_high:fr_high_1|ro:U25
+ro_en => n1.IN0
+clk => meta.CLK
+ro_out <= meta.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|trng:trng|trng_core:trng_core|fr_high:fr_high_1|ro:U26
+ro_en => n1.IN0
+clk => meta.CLK
+ro_out <= meta.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|trng:trng|trng_core:trng_core|fr_high:fr_high_1|ro:U27
+ro_en => n1.IN0
+clk => meta.CLK
+ro_out <= meta.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|trng:trng|trng_core:trng_core|fr_high:fr_high_1|ro:U28
+ro_en => n1.IN0
+clk => meta.CLK
+ro_out <= meta.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|trng:trng|trng_core:trng_core|fr_high:fr_high_1|ro:U29
+ro_en => n1.IN0
+clk => meta.CLK
+ro_out <= meta.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|trng:trng|trng_core:trng_core|fr_high:fr_high_1|ro:U30
+ro_en => n1.IN0
+clk => meta.CLK
+ro_out <= meta.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|trng:trng|trng_core:trng_core|fr_high:fr_high_1|ro:U31
+ro_en => n1.IN0
+clk => meta.CLK
+ro_out <= meta.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|trng:trng|trng_core:trng_core|fr_high:fr_high_1|ro:U32
+ro_en => n1.IN0
+clk => meta.CLK
+ro_out <= meta.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|trng:trng|trng_core:trng_core|fr_high:fr_high_2
+ro_en => ro_en.IN32
+clk => clk.IN32
+fr_h <= fr_h.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|trng:trng|trng_core:trng_core|fr_high:fr_high_2|ro:U1
+ro_en => n1.IN0
+clk => meta.CLK
+ro_out <= meta.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|trng:trng|trng_core:trng_core|fr_high:fr_high_2|ro:U2
+ro_en => n1.IN0
+clk => meta.CLK
+ro_out <= meta.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|trng:trng|trng_core:trng_core|fr_high:fr_high_2|ro:U3
+ro_en => n1.IN0
+clk => meta.CLK
+ro_out <= meta.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|trng:trng|trng_core:trng_core|fr_high:fr_high_2|ro:U4
+ro_en => n1.IN0
+clk => meta.CLK
+ro_out <= meta.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|trng:trng|trng_core:trng_core|fr_high:fr_high_2|ro:U5
+ro_en => n1.IN0
+clk => meta.CLK
+ro_out <= meta.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|trng:trng|trng_core:trng_core|fr_high:fr_high_2|ro:U6
+ro_en => n1.IN0
+clk => meta.CLK
+ro_out <= meta.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|trng:trng|trng_core:trng_core|fr_high:fr_high_2|ro:U7
+ro_en => n1.IN0
+clk => meta.CLK
+ro_out <= meta.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|trng:trng|trng_core:trng_core|fr_high:fr_high_2|ro:U8
+ro_en => n1.IN0
+clk => meta.CLK
+ro_out <= meta.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|trng:trng|trng_core:trng_core|fr_high:fr_high_2|ro:U9
+ro_en => n1.IN0
+clk => meta.CLK
+ro_out <= meta.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|trng:trng|trng_core:trng_core|fr_high:fr_high_2|ro:U10
+ro_en => n1.IN0
+clk => meta.CLK
+ro_out <= meta.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|trng:trng|trng_core:trng_core|fr_high:fr_high_2|ro:U11
+ro_en => n1.IN0
+clk => meta.CLK
+ro_out <= meta.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|trng:trng|trng_core:trng_core|fr_high:fr_high_2|ro:U12
+ro_en => n1.IN0
+clk => meta.CLK
+ro_out <= meta.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|trng:trng|trng_core:trng_core|fr_high:fr_high_2|ro:U13
+ro_en => n1.IN0
+clk => meta.CLK
+ro_out <= meta.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|trng:trng|trng_core:trng_core|fr_high:fr_high_2|ro:U14
+ro_en => n1.IN0
+clk => meta.CLK
+ro_out <= meta.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|trng:trng|trng_core:trng_core|fr_high:fr_high_2|ro:U15
+ro_en => n1.IN0
+clk => meta.CLK
+ro_out <= meta.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|trng:trng|trng_core:trng_core|fr_high:fr_high_2|ro:U16
+ro_en => n1.IN0
+clk => meta.CLK
+ro_out <= meta.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|trng:trng|trng_core:trng_core|fr_high:fr_high_2|ro:U17
+ro_en => n1.IN0
+clk => meta.CLK
+ro_out <= meta.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|trng:trng|trng_core:trng_core|fr_high:fr_high_2|ro:U18
+ro_en => n1.IN0
+clk => meta.CLK
+ro_out <= meta.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|trng:trng|trng_core:trng_core|fr_high:fr_high_2|ro:U19
+ro_en => n1.IN0
+clk => meta.CLK
+ro_out <= meta.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|trng:trng|trng_core:trng_core|fr_high:fr_high_2|ro:U20
+ro_en => n1.IN0
+clk => meta.CLK
+ro_out <= meta.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|trng:trng|trng_core:trng_core|fr_high:fr_high_2|ro:U21
+ro_en => n1.IN0
+clk => meta.CLK
+ro_out <= meta.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|trng:trng|trng_core:trng_core|fr_high:fr_high_2|ro:U22
+ro_en => n1.IN0
+clk => meta.CLK
+ro_out <= meta.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|trng:trng|trng_core:trng_core|fr_high:fr_high_2|ro:U23
+ro_en => n1.IN0
+clk => meta.CLK
+ro_out <= meta.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|trng:trng|trng_core:trng_core|fr_high:fr_high_2|ro:U24
+ro_en => n1.IN0
+clk => meta.CLK
+ro_out <= meta.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|trng:trng|trng_core:trng_core|fr_high:fr_high_2|ro:U25
+ro_en => n1.IN0
+clk => meta.CLK
+ro_out <= meta.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|trng:trng|trng_core:trng_core|fr_high:fr_high_2|ro:U26
+ro_en => n1.IN0
+clk => meta.CLK
+ro_out <= meta.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|trng:trng|trng_core:trng_core|fr_high:fr_high_2|ro:U27
+ro_en => n1.IN0
+clk => meta.CLK
+ro_out <= meta.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|trng:trng|trng_core:trng_core|fr_high:fr_high_2|ro:U28
+ro_en => n1.IN0
+clk => meta.CLK
+ro_out <= meta.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|trng:trng|trng_core:trng_core|fr_high:fr_high_2|ro:U29
+ro_en => n1.IN0
+clk => meta.CLK
+ro_out <= meta.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|trng:trng|trng_core:trng_core|fr_high:fr_high_2|ro:U30
+ro_en => n1.IN0
+clk => meta.CLK
+ro_out <= meta.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|trng:trng|trng_core:trng_core|fr_high:fr_high_2|ro:U31
+ro_en => n1.IN0
+clk => meta.CLK
+ro_out <= meta.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|trng:trng|trng_core:trng_core|fr_high:fr_high_2|ro:U32
+ro_en => n1.IN0
+clk => meta.CLK
+ro_out <= meta.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|trng:trng|trng_core:trng_core|fr_high:fr_high_3
+ro_en => ro_en.IN32
+clk => clk.IN32
+fr_h <= fr_h.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|trng:trng|trng_core:trng_core|fr_high:fr_high_3|ro:U1
+ro_en => n1.IN0
+clk => meta.CLK
+ro_out <= meta.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|trng:trng|trng_core:trng_core|fr_high:fr_high_3|ro:U2
+ro_en => n1.IN0
+clk => meta.CLK
+ro_out <= meta.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|trng:trng|trng_core:trng_core|fr_high:fr_high_3|ro:U3
+ro_en => n1.IN0
+clk => meta.CLK
+ro_out <= meta.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|trng:trng|trng_core:trng_core|fr_high:fr_high_3|ro:U4
+ro_en => n1.IN0
+clk => meta.CLK
+ro_out <= meta.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|trng:trng|trng_core:trng_core|fr_high:fr_high_3|ro:U5
+ro_en => n1.IN0
+clk => meta.CLK
+ro_out <= meta.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|trng:trng|trng_core:trng_core|fr_high:fr_high_3|ro:U6
+ro_en => n1.IN0
+clk => meta.CLK
+ro_out <= meta.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|trng:trng|trng_core:trng_core|fr_high:fr_high_3|ro:U7
+ro_en => n1.IN0
+clk => meta.CLK
+ro_out <= meta.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|trng:trng|trng_core:trng_core|fr_high:fr_high_3|ro:U8
+ro_en => n1.IN0
+clk => meta.CLK
+ro_out <= meta.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|trng:trng|trng_core:trng_core|fr_high:fr_high_3|ro:U9
+ro_en => n1.IN0
+clk => meta.CLK
+ro_out <= meta.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|trng:trng|trng_core:trng_core|fr_high:fr_high_3|ro:U10
+ro_en => n1.IN0
+clk => meta.CLK
+ro_out <= meta.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|trng:trng|trng_core:trng_core|fr_high:fr_high_3|ro:U11
+ro_en => n1.IN0
+clk => meta.CLK
+ro_out <= meta.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|trng:trng|trng_core:trng_core|fr_high:fr_high_3|ro:U12
+ro_en => n1.IN0
+clk => meta.CLK
+ro_out <= meta.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|trng:trng|trng_core:trng_core|fr_high:fr_high_3|ro:U13
+ro_en => n1.IN0
+clk => meta.CLK
+ro_out <= meta.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|trng:trng|trng_core:trng_core|fr_high:fr_high_3|ro:U14
+ro_en => n1.IN0
+clk => meta.CLK
+ro_out <= meta.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|trng:trng|trng_core:trng_core|fr_high:fr_high_3|ro:U15
+ro_en => n1.IN0
+clk => meta.CLK
+ro_out <= meta.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|trng:trng|trng_core:trng_core|fr_high:fr_high_3|ro:U16
+ro_en => n1.IN0
+clk => meta.CLK
+ro_out <= meta.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|trng:trng|trng_core:trng_core|fr_high:fr_high_3|ro:U17
+ro_en => n1.IN0
+clk => meta.CLK
+ro_out <= meta.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|trng:trng|trng_core:trng_core|fr_high:fr_high_3|ro:U18
+ro_en => n1.IN0
+clk => meta.CLK
+ro_out <= meta.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|trng:trng|trng_core:trng_core|fr_high:fr_high_3|ro:U19
+ro_en => n1.IN0
+clk => meta.CLK
+ro_out <= meta.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|trng:trng|trng_core:trng_core|fr_high:fr_high_3|ro:U20
+ro_en => n1.IN0
+clk => meta.CLK
+ro_out <= meta.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|trng:trng|trng_core:trng_core|fr_high:fr_high_3|ro:U21
+ro_en => n1.IN0
+clk => meta.CLK
+ro_out <= meta.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|trng:trng|trng_core:trng_core|fr_high:fr_high_3|ro:U22
+ro_en => n1.IN0
+clk => meta.CLK
+ro_out <= meta.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|trng:trng|trng_core:trng_core|fr_high:fr_high_3|ro:U23
+ro_en => n1.IN0
+clk => meta.CLK
+ro_out <= meta.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|trng:trng|trng_core:trng_core|fr_high:fr_high_3|ro:U24
+ro_en => n1.IN0
+clk => meta.CLK
+ro_out <= meta.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|trng:trng|trng_core:trng_core|fr_high:fr_high_3|ro:U25
+ro_en => n1.IN0
+clk => meta.CLK
+ro_out <= meta.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|trng:trng|trng_core:trng_core|fr_high:fr_high_3|ro:U26
+ro_en => n1.IN0
+clk => meta.CLK
+ro_out <= meta.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|trng:trng|trng_core:trng_core|fr_high:fr_high_3|ro:U27
+ro_en => n1.IN0
+clk => meta.CLK
+ro_out <= meta.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|trng:trng|trng_core:trng_core|fr_high:fr_high_3|ro:U28
+ro_en => n1.IN0
+clk => meta.CLK
+ro_out <= meta.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|trng:trng|trng_core:trng_core|fr_high:fr_high_3|ro:U29
+ro_en => n1.IN0
+clk => meta.CLK
+ro_out <= meta.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|trng:trng|trng_core:trng_core|fr_high:fr_high_3|ro:U30
+ro_en => n1.IN0
+clk => meta.CLK
+ro_out <= meta.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|trng:trng|trng_core:trng_core|fr_high:fr_high_3|ro:U31
+ro_en => n1.IN0
+clk => meta.CLK
+ro_out <= meta.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|trng:trng|trng_core:trng_core|fr_high:fr_high_3|ro:U32
+ro_en => n1.IN0
+clk => meta.CLK
+ro_out <= meta.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|trng:trng|trng_core:trng_core|fr_high:fr_high_4
+ro_en => ro_en.IN32
+clk => clk.IN32
+fr_h <= fr_h.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|trng:trng|trng_core:trng_core|fr_high:fr_high_4|ro:U1
+ro_en => n1.IN0
+clk => meta.CLK
+ro_out <= meta.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|trng:trng|trng_core:trng_core|fr_high:fr_high_4|ro:U2
+ro_en => n1.IN0
+clk => meta.CLK
+ro_out <= meta.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|trng:trng|trng_core:trng_core|fr_high:fr_high_4|ro:U3
+ro_en => n1.IN0
+clk => meta.CLK
+ro_out <= meta.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|trng:trng|trng_core:trng_core|fr_high:fr_high_4|ro:U4
+ro_en => n1.IN0
+clk => meta.CLK
+ro_out <= meta.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|trng:trng|trng_core:trng_core|fr_high:fr_high_4|ro:U5
+ro_en => n1.IN0
+clk => meta.CLK
+ro_out <= meta.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|trng:trng|trng_core:trng_core|fr_high:fr_high_4|ro:U6
+ro_en => n1.IN0
+clk => meta.CLK
+ro_out <= meta.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|trng:trng|trng_core:trng_core|fr_high:fr_high_4|ro:U7
+ro_en => n1.IN0
+clk => meta.CLK
+ro_out <= meta.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|trng:trng|trng_core:trng_core|fr_high:fr_high_4|ro:U8
+ro_en => n1.IN0
+clk => meta.CLK
+ro_out <= meta.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|trng:trng|trng_core:trng_core|fr_high:fr_high_4|ro:U9
+ro_en => n1.IN0
+clk => meta.CLK
+ro_out <= meta.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|trng:trng|trng_core:trng_core|fr_high:fr_high_4|ro:U10
+ro_en => n1.IN0
+clk => meta.CLK
+ro_out <= meta.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|trng:trng|trng_core:trng_core|fr_high:fr_high_4|ro:U11
+ro_en => n1.IN0
+clk => meta.CLK
+ro_out <= meta.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|trng:trng|trng_core:trng_core|fr_high:fr_high_4|ro:U12
+ro_en => n1.IN0
+clk => meta.CLK
+ro_out <= meta.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|trng:trng|trng_core:trng_core|fr_high:fr_high_4|ro:U13
+ro_en => n1.IN0
+clk => meta.CLK
+ro_out <= meta.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|trng:trng|trng_core:trng_core|fr_high:fr_high_4|ro:U14
+ro_en => n1.IN0
+clk => meta.CLK
+ro_out <= meta.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|trng:trng|trng_core:trng_core|fr_high:fr_high_4|ro:U15
+ro_en => n1.IN0
+clk => meta.CLK
+ro_out <= meta.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|trng:trng|trng_core:trng_core|fr_high:fr_high_4|ro:U16
+ro_en => n1.IN0
+clk => meta.CLK
+ro_out <= meta.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|trng:trng|trng_core:trng_core|fr_high:fr_high_4|ro:U17
+ro_en => n1.IN0
+clk => meta.CLK
+ro_out <= meta.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|trng:trng|trng_core:trng_core|fr_high:fr_high_4|ro:U18
+ro_en => n1.IN0
+clk => meta.CLK
+ro_out <= meta.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|trng:trng|trng_core:trng_core|fr_high:fr_high_4|ro:U19
+ro_en => n1.IN0
+clk => meta.CLK
+ro_out <= meta.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|trng:trng|trng_core:trng_core|fr_high:fr_high_4|ro:U20
+ro_en => n1.IN0
+clk => meta.CLK
+ro_out <= meta.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|trng:trng|trng_core:trng_core|fr_high:fr_high_4|ro:U21
+ro_en => n1.IN0
+clk => meta.CLK
+ro_out <= meta.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|trng:trng|trng_core:trng_core|fr_high:fr_high_4|ro:U22
+ro_en => n1.IN0
+clk => meta.CLK
+ro_out <= meta.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|trng:trng|trng_core:trng_core|fr_high:fr_high_4|ro:U23
+ro_en => n1.IN0
+clk => meta.CLK
+ro_out <= meta.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|trng:trng|trng_core:trng_core|fr_high:fr_high_4|ro:U24
+ro_en => n1.IN0
+clk => meta.CLK
+ro_out <= meta.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|trng:trng|trng_core:trng_core|fr_high:fr_high_4|ro:U25
+ro_en => n1.IN0
+clk => meta.CLK
+ro_out <= meta.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|trng:trng|trng_core:trng_core|fr_high:fr_high_4|ro:U26
+ro_en => n1.IN0
+clk => meta.CLK
+ro_out <= meta.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|trng:trng|trng_core:trng_core|fr_high:fr_high_4|ro:U27
+ro_en => n1.IN0
+clk => meta.CLK
+ro_out <= meta.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|trng:trng|trng_core:trng_core|fr_high:fr_high_4|ro:U28
+ro_en => n1.IN0
+clk => meta.CLK
+ro_out <= meta.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|trng:trng|trng_core:trng_core|fr_high:fr_high_4|ro:U29
+ro_en => n1.IN0
+clk => meta.CLK
+ro_out <= meta.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|trng:trng|trng_core:trng_core|fr_high:fr_high_4|ro:U30
+ro_en => n1.IN0
+clk => meta.CLK
+ro_out <= meta.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|trng:trng|trng_core:trng_core|fr_high:fr_high_4|ro:U31
+ro_en => n1.IN0
+clk => meta.CLK
+ro_out <= meta.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|trng:trng|trng_core:trng_core|fr_high:fr_high_4|ro:U32
+ro_en => n1.IN0
+clk => meta.CLK
+ro_out <= meta.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|rxtx:rxtx
+clk => tx~reg0.CLK
+clk => tran_cnt[0].CLK
+clk => tran_cnt[1].CLK
+clk => tran_cnt[2].CLK
+clk => tran_cnt[3].CLK
+clk => tran_vld.CLK
+clk => tx_rdy_data[0].CLK
+clk => tx_rdy_data[1].CLK
+clk => tx_rdy_data[2].CLK
+clk => tx_rdy_data[3].CLK
+clk => tx_rdy_data[4].CLK
+clk => tx_rdy_data[5].CLK
+clk => tx_rdy_data[6].CLK
+clk => tx_rdy_data[7].CLK
+clk => rx_vld~reg0.CLK
+clk => rx_data[0]~reg0.CLK
+clk => rx_data[1]~reg0.CLK
+clk => rx_data[2]~reg0.CLK
+clk => rx_data[3]~reg0.CLK
+clk => rx_data[4]~reg0.CLK
+clk => rx_data[5]~reg0.CLK
+clk => rx_data[6]~reg0.CLK
+clk => rx_data[7]~reg0.CLK
+clk => data_cnt[0].CLK
+clk => data_cnt[1].CLK
+clk => data_cnt[2].CLK
+clk => data_cnt[3].CLK
+clk => data_vld.CLK
+clk => rx_cnt[0].CLK
+clk => rx_cnt[1].CLK
+clk => rx_cnt[2].CLK
+clk => rx_cnt[3].CLK
+clk => rx_cnt[4].CLK
+clk => rx_cnt[5].CLK
+clk => rx_cnt[6].CLK
+clk => rx_cnt[7].CLK
+clk => rx_cnt[8].CLK
+clk => rx_cnt[9].CLK
+clk => rx_cnt[10].CLK
+clk => rx_cnt[11].CLK
+clk => rx_cnt[12].CLK
+clk => rx_cnt[13].CLK
+clk => rx_dly.CLK
+clk => rxx.CLK
+clk => rx3.CLK
+clk => rx2.CLK
+clk => rx1.CLK
+rst => tx~reg0.PRESET
+rst => tran_cnt[0].ACLR
+rst => tran_cnt[1].ACLR
+rst => tran_cnt[2].ACLR
+rst => tran_cnt[3].ACLR
+rst => tran_vld.ACLR
+rst => tx_rdy_data[0].ACLR
+rst => tx_rdy_data[1].ACLR
+rst => tx_rdy_data[2].ACLR
+rst => tx_rdy_data[3].ACLR
+rst => tx_rdy_data[4].ACLR
+rst => tx_rdy_data[5].ACLR
+rst => tx_rdy_data[6].ACLR
+rst => tx_rdy_data[7].ACLR
+rst => rx_vld~reg0.ACLR
+rst => rx_data[0]~reg0.ACLR
+rst => rx_data[1]~reg0.ACLR
+rst => rx_data[2]~reg0.ACLR
+rst => rx_data[3]~reg0.ACLR
+rst => rx_data[4]~reg0.ACLR
+rst => rx_data[5]~reg0.ACLR
+rst => rx_data[6]~reg0.ACLR
+rst => rx_data[7]~reg0.ACLR
+rst => data_cnt[0].ACLR
+rst => data_cnt[1].ACLR
+rst => data_cnt[2].ACLR
+rst => data_cnt[3].ACLR
+rst => data_vld.ACLR
+rst => rx_cnt[0].ACLR
+rst => rx_cnt[1].ACLR
+rst => rx_cnt[2].ACLR
+rst => rx_cnt[3].ACLR
+rst => rx_cnt[4].ACLR
+rst => rx_cnt[5].ACLR
+rst => rx_cnt[6].ACLR
+rst => rx_cnt[7].ACLR
+rst => rx_cnt[8].ACLR
+rst => rx_cnt[9].ACLR
+rst => rx_cnt[10].ACLR
+rst => rx_cnt[11].ACLR
+rst => rx_cnt[12].ACLR
+rst => rx_cnt[13].ACLR
+rx => rx1.DATAIN
+tx_vld => always7.IN1
+tx_vld => tran_vld.OUTPUTSELECT
+tx_data[0] => tx_rdy_data[0].DATAIN
+tx_data[1] => tx_rdy_data[1].DATAIN
+tx_data[2] => tx_rdy_data[2].DATAIN
+tx_data[3] => tx_rdy_data[3].DATAIN
+tx_data[4] => tx_rdy_data[4].DATAIN
+tx_data[5] => tx_rdy_data[5].DATAIN
+tx_data[6] => tx_rdy_data[6].DATAIN
+tx_data[7] => tx_rdy_data[7].DATAIN
+rx_vld <= rx_vld~reg0.DB_MAX_OUTPUT_PORT_TYPE
+rx_data[0] <= rx_data[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+rx_data[1] <= rx_data[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+rx_data[2] <= rx_data[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+rx_data[3] <= rx_data[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+rx_data[4] <= rx_data[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+rx_data[5] <= rx_data[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+rx_data[6] <= rx_data[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+rx_data[7] <= rx_data[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+tx <= tx~reg0.DB_MAX_OUTPUT_PORT_TYPE
+txrdy <= tran_vld.DB_MAX_OUTPUT_PORT_TYPE
+
+
